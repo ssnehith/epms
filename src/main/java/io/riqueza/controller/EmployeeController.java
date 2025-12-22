@@ -3,11 +3,15 @@ package io.riqueza.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.riqueza.dto.CreateEmployeeRequest;
 import io.riqueza.entity.Employee;
 import io.riqueza.service.EmployeeService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/employees")
@@ -23,4 +27,10 @@ public class EmployeeController {
     public List<Employee> getEmployees() {
         return employeeService.getEmployees();
     }
+
+    @PostMapping
+    public Employee createEmployee(@Valid @RequestBody CreateEmployeeRequest req) {
+        return employeeService.createEmployee(req);
+    }
+
 }
