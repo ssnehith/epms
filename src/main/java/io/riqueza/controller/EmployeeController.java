@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.riqueza.entity.Employee;
 import io.riqueza.service.EmployeeService;
 
 @RestController
@@ -19,7 +20,7 @@ public class EmployeeController {
     }
 
     @GetMapping
-    public List<String> getEmployees() {
+    public List<Employee> getEmployees() {
         return employeeService.getEmployees();
     }
 }
